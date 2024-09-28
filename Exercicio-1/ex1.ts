@@ -1,12 +1,22 @@
-function contar_vogais(palavra: string): number {
+// @ts-check
+
+function contarVogais(palavra?: string): number {
     const vogais = ['a', 'e', 'i', 'o', 'u'];
     let cont = 0;
-    for (let i of palavra) {
+
+    if (!palavra) {
+        const inputElement = document.getElementById("palavra") as HTMLInputElement;
+        palavra = inputElement.value;
+    }
+
+    for (let i of palavra.toLowerCase()) {
         if (vogais.includes(i)) {
             cont += 1;
         }
     }
+
+    const resultadoElement = document.getElementById("resultado") as HTMLElement;
+    resultadoElement.textContent = "Quantidade de vogais: " + cont;
     return cont;
 }
-
-console.log("Quantidade de vogais: " + contar_vogais("testando"));
+console.log("Quantidade de vogais (console): " + contarVogais("testaaando"));
