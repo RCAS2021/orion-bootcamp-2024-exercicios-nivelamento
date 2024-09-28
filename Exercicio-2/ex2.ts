@@ -29,49 +29,47 @@ function nameByIdImperativo(id_passado: number): string{
 
 
 function removeFromListByIdImperativo(id_passado: number): string{
-    for (let i of lista){
-        if (i.id === id_passado){
-            lista.splice(i.id, 1);
-            break;
+    for (let i = 0; i < lista.length; i++){
+        if (lista[i].id === id_passado){
+            lista.splice(i, 1);
+            return `Item removido: ${id_passado}`
         }
     }
 
     return "ID não existe";
 }
 
-function updateByIdImperativo(id_passado: number, name?: string, bio?: string){
-    for (let i of lista){
-        if (i.id === id_passado){
-            if (name !== undefined){
+function updateByIdImperativo(id_passado: number, name?: string, bio?: string) {
+    for (let i of lista) {
+        if (i.id === id_passado) {
+            if (name !== undefined) {
                 i.name = name;
             }
-            if (bio !== undefined){
+            if (bio !== undefined) {
                 i.bio = bio;
             }
+            return `Informações alteradas no ID ${id_passado}`;
         }
     }
+    return "ID não existe";
 }
 
-
+console.log("*****PARADIGMA IMPERATIVO*****")
 console.log("Lista inicial")
 console.log(lista)
-console.log("Busca da BIO por id: " + bioByIdImperativo(1));
+console.log("\nBusca da BIO por id: " + bioByIdImperativo(1));
 console.log("Busca do nome por id: " + nameByIdImperativo(2));
 console.log("\nRemovendo da lista pelo id");
 console.log(removeFromListByIdImperativo(3));
-console.log("\nObserve que a lista original não foi alterada: ")
 console.log(lista)
 console.log("\nAtualizando valor do name + bio, pelo id");
 console.log(updateByIdImperativo(4, "testename1", "testebio1"));
-console.log("\nObserve que a lista original não foi alterada")
 console.log(lista)
 console.log("\nAtualizando valor do name, pelo id");
 console.log(updateByIdImperativo(4, "testename2", undefined));
-console.log("\nObserve que a lista original não foi alterada")
 console.log(lista)
 console.log("\nAtualizando valor da bio, pelo id");
 console.log(updateByIdImperativo(4, undefined, "testebio2"));
-console.log("\nObserve que a lista original não foi alterada")
 console.log(lista)
 
 // Paradigma funcional 
@@ -118,7 +116,8 @@ const updateByIdFuncional = (id_passado: number, name?: string, bio?: string) =>
     })
 }
 
-console.log("Lista inicial")
+console.log("*****PARADIGMA FUNCIONAL*****")
+console.log("\nLista inicial")
 console.log(lista)
 console.log("Busca da BIO por id: " + bioByIdFuncional(1));
 console.log("Busca do nome por id: " + nameByIdFuncional(2));
