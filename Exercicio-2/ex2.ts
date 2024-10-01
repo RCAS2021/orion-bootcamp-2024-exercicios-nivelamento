@@ -5,7 +5,6 @@ let lista = [
     {"id" : 3, "name": "Nikola Tesla", "bio" : "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada."},
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}];
 
-
 function bioByIdImperativo(id_passado: number): string{
     for (let i of lista){
         if (i.id === id_passado){
@@ -16,7 +15,6 @@ function bioByIdImperativo(id_passado: number): string{
     return "ID não existe";
 }
 
-
 function nameByIdImperativo(id_passado: number): string{
     for (let i of lista){
         if (i.id === id_passado){
@@ -26,7 +24,6 @@ function nameByIdImperativo(id_passado: number): string{
 
     return "ID não existe";
 }
-
 
 function removeFromListByIdImperativo(id_passado: number): string{
     for (let i = 0; i < lista.length; i++){
@@ -88,7 +85,6 @@ const bioByIdFuncional = (id_passado: number): string => {
     return "ID não existe";
 }
 
-
 const nameByIdFuncional = (id_passado: number): string => {
     const i = lista.find((i) => i.id === id_passado)
     if (i !== undefined){
@@ -97,7 +93,6 @@ const nameByIdFuncional = (id_passado: number): string => {
 
     return "ID não existe";
 }
-
 
 const removeFromListByIdFuncional = (id_passado: number) => {
     return lista.filter((i) => i.id !== id_passado);
@@ -108,9 +103,9 @@ const updateByIdFuncional = (id_passado: number, name?: string, bio?: string) =>
         if (i.id === id_passado){
             return {
                 ...i,
-                ...(name !== undefined && { name }),
-                ...(bio !== undefined && { bio })
-            };
+                name: name !== undefined ? name : i.name,
+                bio: bio !== undefined ? bio : i.bio
+            }
         }
         return i;
     })
@@ -137,5 +132,3 @@ console.log("\nAtualizando valor da bio, pelo id");
 console.log(updateByIdFuncional(4, undefined, "testebio2"));
 console.log("\nObserve que a lista original não foi alterada")
 console.log(lista)
-
-
