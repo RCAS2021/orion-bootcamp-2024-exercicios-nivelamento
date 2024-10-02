@@ -15,21 +15,21 @@ function getIdPassado(){
     return id;
 }
 
-function buttonBioById(){
+function buttonBioByIdImperativo(){
     const id = getIdPassado();
 
     const resultadoElement = document.getElementById("resultadoLista") as HTMLElement;
     resultadoElement.textContent = "Bio do ID: " + bioByIdImperativo(Number(id));
 }
 
-function buttonNameById(){
+function buttonNameByIdImperativo(){
     const id = getIdPassado();
 
     const resultadoElement = document.getElementById("resultadoLista") as HTMLElement;
     resultadoElement.textContent = "Nome do ID: " + nameByIdImperativo(Number(id));
 }
 
-function buttonUpdateById(){
+function buttonUpdateByIdImperativo(){
     const id = getIdPassado();
     const bioHtml = document.getElementById("bio") as HTMLInputElement;
     const nomeHtml = document.getElementById("name") as HTMLInputElement;
@@ -49,10 +49,11 @@ function buttonUpdateById(){
     listarLista();
 }
 
-function buttonRemoveById(){
+function buttonRemoveByIdImperativo(){
     const id = getIdPassado();
 
     removeFromListByIdImperativo(Number(id));
 
     listarLista();
 }
+

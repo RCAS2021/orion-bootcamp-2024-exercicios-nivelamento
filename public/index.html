@@ -23,22 +23,42 @@
     <script>listarLista()</script>
     
     <form id="listaForm">
-        <label>Digite o ID:</label>
-        <input type="text" id="id" name="id">
-        <button type="button" onclick="buttonBioById()">Checar bio</button>
-        <button type="button" onclick="buttonNameById()">Checar nome</button>
-        <button type="button" onclick="buttonRemoveById()">Remover</button>
-        <p id="resultadoLista"></p>
-        <label>Digite as informações a serem alteradas: </label>
-        <form id="updateForm">
+        <h3>Utilizando paradigma imperativo</h3>
+            <label>Digite o ID:</label>
+            <input type="text" id="id" name="id">
+            <button type="button" onclick="buttonBioByIdImperativo()">Checar bio</button>
+            <button type="button" onclick="buttonNameByIdImperativo()">Checar nome</button>
+            <button type="button" onclick="buttonRemoveByIdImperativo()">Remover</button>
+            <p id="resultadoLista"></p>
+            <label>Digite as informações a serem alteradas: </label>
+            <form id="updateForm">
+                <p></p>
+                <label>Nome: </label>
+                <input type="text" id="name" name="name">
+                <label>Bio: </label>
+                <input type="text" id="bio" name="bio">
+            </form>
             <p></p>
-            <label>Nome: </label>
-            <input type="text" id="name" name="name">
-            <label>Bio: </label>
-            <input type="text" id="bio" name="bio">
-        </form>
-        <p></p>
-        <button type="button" onclick="buttonUpdateById()">Atualizar</button>
+            <button type="button" onclick="buttonUpdateByIdImperativo()">Atualizar</button>
+            <p></p>
+        <h3>Utilizando paradigma funcional</h3>
+            <label>Digite o ID:</label>
+            <input type="text" id="id" name="id">
+            <button type="button" onclick="buttonBioByIdFuncional()">Checar bio</button>
+            <button type="button" onclick="buttonNameByIdFuncional()">Checar nome</button>
+            <button type="button" onclick="buttonRemoveByIdFuncional()">Remover</button>
+            <p id="resultadoLista"></p>
+            <label>Digite as informações a serem alteradas: </label>
+            <form id="updateForm">
+                <p></p>
+                <label>Nome: </label>
+                <input type="text" id="name" name="name">
+                <label>Bio: </label>
+                <input type="text" id="bio" name="bio">
+            </form>
+            <p></p>
+            <button type="button" onclick="buttonUpdateByIdFuncional()">Atualizar</button>
+            <p></p>
     </form>
 </body>
 </html>
