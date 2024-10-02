@@ -107,6 +107,6 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
-  "include": ["Exercicio-1/**/*", "Exercicio-2/**/*", "Exercicio-3/**/*"],
+  "include": ["index.html", "Exercicio-1/**/*", "Exercicio-2/**/*", "Exercicio-3/**/*"],
   "exlude": ["node_modules"]
 }
