@@ -5,6 +5,17 @@ let lista = [
     {"id" : 3, "name": "Nikola Tesla", "bio" : "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada."},
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}];
 
+function listarLista(){
+    const listaHtml = document.getElementById("lista");
+    if (listaHtml !== null){
+        listaHtml.textContent = "Lista: " + JSON.stringify(lista);
+    }
+    else {
+        console.log("Lista não existe")
+    }
+}
+
+
 function bioByIdImperativo(id_passado: number): string{
     for (let i of lista){
         if (i.id === id_passado){
