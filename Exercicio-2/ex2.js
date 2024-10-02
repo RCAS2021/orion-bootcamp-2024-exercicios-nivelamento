@@ -6,41 +6,41 @@ let lista = [
     { "id": 3, "name": "Nikola Tesla", "bio": "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada." },
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
 ];
-function bioByIdImperativo(id_passado) {
+function bioByIdImperativo(idPassado) {
     for (let i of lista) {
-        if (i.id === id_passado) {
+        if (i.id === idPassado) {
             return i.bio;
         }
     }
     return "ID não existe";
 }
-function nameByIdImperativo(id_passado) {
+function nameByIdImperativo(idPassado) {
     for (let i of lista) {
-        if (i.id === id_passado) {
+        if (i.id === idPassado) {
             return i.name;
         }
     }
     return "ID não existe";
 }
-function removeFromListByIdImperativo(id_passado) {
+function removeFromListByIdImperativo(idPassado) {
     for (let i = 0; i < lista.length; i++) {
-        if (lista[i].id === id_passado) {
+        if (lista[i].id === idPassado) {
             lista.splice(i, 1);
-            return `Item removido: ${id_passado}`;
+            return `Item removido: ${idPassado}`;
         }
     }
     return "ID não existe";
 }
-function updateByIdImperativo(id_passado, name, bio) {
+function updateByIdImperativo(idPassado, name, bio) {
     for (let i of lista) {
-        if (i.id === id_passado) {
+        if (i.id === idPassado) {
             if (name !== undefined) {
                 i.name = name;
             }
             if (bio !== undefined) {
                 i.bio = bio;
             }
-            return `Informações alteradas no ID ${id_passado}`;
+            return `Informações alteradas no ID ${idPassado}`;
         }
     }
     return "ID não existe";
@@ -69,26 +69,26 @@ lista = [
     { "id": 3, "name": "Nikola Tesla", "bio": "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada." },
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
 ];
-const bioByIdFuncional = (id_passado) => {
-    const i = lista.find((i) => i.id === id_passado);
+const bioByIdFuncional = (idPassado) => {
+    const i = lista.find((i) => i.id === idPassado);
     if (i !== undefined) {
         return i.bio;
     }
     return "ID não existe";
 };
-const nameByIdFuncional = (id_passado) => {
-    const i = lista.find((i) => i.id === id_passado);
+const nameByIdFuncional = (idPassado) => {
+    const i = lista.find((i) => i.id === idPassado);
     if (i !== undefined) {
         return i.name;
     }
     return "ID não existe";
 };
-const removeFromListByIdFuncional = (id_passado) => {
-    return lista.filter((i) => i.id !== id_passado);
+const removeFromListByIdFuncional = (idPassado) => {
+    return lista.filter((i) => i.id !== idPassado);
 };
-const updateByIdFuncional = (id_passado, name, bio) => {
+const updateByIdFuncional = (idPassado, name, bio) => {
     return lista.map((i) => {
-        if (i.id === id_passado) {
+        if (i.id === idPassado) {
             return Object.assign(Object.assign({}, i), { name: name !== undefined ? name : i.name, bio: bio !== undefined ? bio : i.bio });
         }
         return i;
