@@ -27,9 +27,18 @@
         <input type="text" id="id" name="id">
         <button type="button" onclick="buttonBioById()">Checar bio</button>
         <button type="button" onclick="buttonNameById()">Checar nome</button>
-        <button type="button" onclick="updateByIdImperativo()">Atualizar</button>
         <button type="button" onclick="removeFromListImperativo()">Remover</button>
         <p id="resultadoLista"></p>
+        <label>Digite as informações a serem alteradas: </label>
+        <form id="updateForm">
+            <p></p>
+            <label>Nome: </label>
+            <input type="text" id="name" name="name">
+            <label>Bio: </label>
+            <input type="text" id="bio" name="bio">
+        </form>
+        <p></p>
+        <button type="button" onclick="buttonUpdateById()">Atualizar</button>
     </form>
 </body>
 </html>
