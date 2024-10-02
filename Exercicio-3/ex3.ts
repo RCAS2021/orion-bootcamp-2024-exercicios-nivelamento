@@ -48,3 +48,11 @@ function buttonUpdateById(){
 
     listarLista();
 }
+
+function buttonRemoveById(){
+    const id = getIdPassado();
+
+    removeFromListByIdImperativo(Number(id));
+
+    listarLista();
+}
