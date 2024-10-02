@@ -5,9 +5,9 @@ let lista = [
     {"id" : 3, "name": "Nikola Tesla", "bio" : "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada."},
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}];
 
-function bioByIdImperativo(id_passado: number): string{
+function bioByIdImperativo(idPassado: number): string{
     for (let i of lista){
-        if (i.id === id_passado){
+        if (i.id === idPassado){
             return i.bio;
         }
     }
@@ -15,9 +15,9 @@ function bioByIdImperativo(id_passado: number): string{
     return "ID não existe";
 }
 
-function nameByIdImperativo(id_passado: number): string{
+function nameByIdImperativo(idPassado: number): string{
     for (let i of lista){
-        if (i.id === id_passado){
+        if (i.id === idPassado){
             return i.name;
         }
     }
@@ -25,27 +25,27 @@ function nameByIdImperativo(id_passado: number): string{
     return "ID não existe";
 }
 
-function removeFromListByIdImperativo(id_passado: number): string{
+function removeFromListByIdImperativo(idPassado: number): string{
     for (let i = 0; i < lista.length; i++){
-        if (lista[i].id === id_passado){
+        if (lista[i].id === idPassado){
             lista.splice(i, 1);
-            return `Item removido: ${id_passado}`
+            return `Item removido: ${idPassado}`
         }
     }
 
     return "ID não existe";
 }
 
-function updateByIdImperativo(id_passado: number, name?: string, bio?: string) {
+function updateByIdImperativo(idPassado: number, name?: string, bio?: string) {
     for (let i of lista) {
-        if (i.id === id_passado) {
+        if (i.id === idPassado) {
             if (name !== undefined) {
                 i.name = name;
             }
             if (bio !== undefined) {
                 i.bio = bio;
             }
-            return `Informações alteradas no ID ${id_passado}`;
+            return `Informações alteradas no ID ${idPassado}`;
         }
     }
     return "ID não existe";
@@ -76,8 +76,8 @@ lista = [
     {"id" : 3, "name": "Nikola Tesla", "bio" : "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada."},
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}];
 
-const bioByIdFuncional = (id_passado: number): string => {
-    const i = lista.find((i) => i.id === id_passado)
+const bioByIdFuncional = (idPassado: number): string => {
+    const i = lista.find((i) => i.id === idPassado)
     if (i !== undefined){
         return i.bio;
     }
@@ -85,8 +85,8 @@ const bioByIdFuncional = (id_passado: number): string => {
     return "ID não existe";
 }
 
-const nameByIdFuncional = (id_passado: number): string => {
-    const i = lista.find((i) => i.id === id_passado)
+const nameByIdFuncional = (idPassado: number): string => {
+    const i = lista.find((i) => i.id === idPassado)
     if (i !== undefined){
         return i.name;
     }
@@ -94,13 +94,13 @@ const nameByIdFuncional = (id_passado: number): string => {
     return "ID não existe";
 }
 
-const removeFromListByIdFuncional = (id_passado: number) => {
-    return lista.filter((i) => i.id !== id_passado);
+const removeFromListByIdFuncional = (idPassado: number) => {
+    return lista.filter((i) => i.id !== idPassado);
 }
 
-const updateByIdFuncional = (id_passado: number, name?: string, bio?: string) => {
+const updateByIdFuncional = (idPassado: number, name?: string, bio?: string) => {
     return lista.map((i) => {
-        if (i.id === id_passado){
+        if (i.id === idPassado){
             return {
                 ...i,
                 name: name !== undefined ? name : i.name,
