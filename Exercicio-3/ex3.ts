@@ -15,3 +15,11 @@ function buttonBioById(){
     const resultadoElement = document.getElementById("resultadoLista") as HTMLElement;
     resultadoElement.textContent = "Bio do ID: " + bioByIdImperativo(Number(id));
 }
+
+function buttonNameById(){
+    const idPassado = document.getElementById("id") as HTMLInputElement;
+    const id = idPassado.value;
+
+    const resultadoElement = document.getElementById("resultadoLista") as HTMLElement;
+    resultadoElement.textContent = "Nome do ID: " + nameByIdImperativo(Number(id));
+}
