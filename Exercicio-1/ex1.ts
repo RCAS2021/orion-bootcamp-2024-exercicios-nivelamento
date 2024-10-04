@@ -9,6 +9,7 @@ function contarVogais(palavra?: string): number {
         palavra = inputElement.value;
     }
 
+    palavra = palavra.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
     for (let i of palavra.toLowerCase()) {
         if (vogais.includes(i)) {
             cont += 1;
