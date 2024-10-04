@@ -15,6 +15,24 @@ function listarLista(){
     }
 }
 
+function listarListaFuncional(){
+    /**
+     * Atualiza o elemento HTML lista, com a lista funcional de itens do exercício 2.
+     * 
+     * Verifica se o elemento HTML lista existe e o atualiza com a lista funcional do exercício 2. Caso ele não existe, exibe uma mensagem de erro.
+     * 
+     * @returns Não tem retorno.
+     */
+    const listaHtml = document.getElementById("lista");
+    if (listaHtml !== null){
+        listaHtml.textContent = "Lista: " + JSON.stringify(listaFuncional);
+    }
+    else {
+        console.log("Lista não existe")
+    }
+
+}
+
 function pegaIdPassado(tipo: string){
     /**
      * Pega o id passado pelo elemento de input HTML e retorna o id.
@@ -151,7 +169,7 @@ function botaoAtualizaPorIdFuncional(){
      * 
      * A função obtém o id de um elemento input HTML e busca os valores a serem atualizados da bio e do nome através de elementos input HTML correspondentes.
      * Se pelo menos um dos valores existir, a função chama a função atualizaPorIdFuncional para realizar a atualização dos valores e retornar uma nova lista,
-     * que será utilizada ao atualizar o texto do elemento HTML resultadoListaFuncional e chama a função listarLista para mostrar a lista original,
+     * que será utilizada ao atualizar o texto do elemento HTML resultadoListaFuncional e chama a função listarListaFuncional para mostrar a lista funcional original,
      * demonstrando que foi criada uma nova lista e a lista original permanece inalterada.
      * 
      * @returns Não retorna nenhum valor.
@@ -169,7 +187,7 @@ function botaoAtualizaPorIdFuncional(){
         resultadoElement.textContent = "Nova lista: " + JSON.stringify(novaLista);
     }
 
-    listarLista();
+    listarListaFuncional();
 }
 
 function botaoRemovePorIdFuncional(){
@@ -177,7 +195,7 @@ function botaoRemovePorIdFuncional(){
      * Remove um item da lista com base no ID obtido via a função `pegaIdPassado`, com o tipo "funcional", e exibe a lista atualizada.
      * 
      * A função obtém o id de um elemento input HTML e chama a função removeDaListaPorIdFuncional, para remover o item correspondente. 
-     * O resultado é uma nova lista, que será usada então, para atualizar o elemento HTML resultadoListaFuncional, e então chama a função listarLista para mostrar a lista original,
+     * O resultado é uma nova lista, que será usada então, para atualizar o elemento HTML resultadoListaFuncional, e então chama a função listarListaFuncional para mostrar a lista funcional original,
      * demonstrando que foi criada uma nova lista e a lista original permanece inalterada.
      * 
      * @returns Não retorna nenhum valor.
@@ -188,6 +206,6 @@ function botaoRemovePorIdFuncional(){
     const resultadoElement = document.getElementById("resultadoListaFuncional") as HTMLElement;
     resultadoElement.textContent = "Nova lista: " + JSON.stringify(novaLista) + "\nObserve que a lista original não foi alterada!";
     
-    listarLista();
+    listarListaFuncional();
 }
 
