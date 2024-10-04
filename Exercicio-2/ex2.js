@@ -94,10 +94,7 @@ const listaFuncional = [{ id: 1, name: "Ada Lovelace", bio: "Ada Lovelace, foi u
  */
 const bioPorIdFuncional = (idPassado) => {
     const item = listaFuncional.find((item) => item.id === idPassado);
-    if (item !== undefined) {
-        return item.bio;
-    }
-    return "ID não existe";
+    return item ? item.bio : "ID não existe";
 };
 /**
  * Retorna o nome do id fornecido como parâmetro, de acordo com o paradigma funcional.
@@ -109,10 +106,7 @@ const bioPorIdFuncional = (idPassado) => {
  */
 const nomePorIdFuncional = (idPassado) => {
     const item = listaFuncional.find((item) => item.id === idPassado);
-    if (item !== undefined) {
-        return item.name;
-    }
-    return "ID não existe";
+    return item ? item.name : "ID não existe";
 };
 /**
  * Remove um item da lista, de acordo com o id fornecido, de acordo com o paradigma funcional.
