@@ -80,23 +80,6 @@ function atualizaPorIdImperativo(idPassado, nome, bio) {
     }
     return "ID não existe";
 }
-console.log("*****PARADIGMA IMPERATIVO*****");
-console.log("Lista inicial");
-console.log(lista);
-console.log("\nBusca da BIO por id: " + bioPorIdImperativo(1));
-console.log("Busca do nome por id: " + nomePorIdImperativo(2));
-console.log("\nRemovendo da lista pelo id");
-console.log(removeDaListaPorIdImperativo(3));
-console.log(lista);
-console.log("\nAtualizando valor do name + bio, pelo id");
-console.log(atualizaPorIdImperativo(4, "testename1", "testebio1"));
-console.log(lista);
-console.log("\nAtualizando valor do name, pelo id");
-console.log(atualizaPorIdImperativo(4, "testename2", undefined));
-console.log(lista);
-console.log("\nAtualizando valor da bio, pelo id");
-console.log(atualizaPorIdImperativo(4, undefined, "testebio2"));
-console.log(lista);
 const listaFuncional = [{ id: 1, name: "Ada Lovelace", bio: "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina" },
     { id: 2, name: "Alan Turing", bio: "Alan Turing foi um matemático, cientista da computação, lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é amplamente considerado o pai da ciência da computação teórica e da inteligência artificial" },
     { id: 3, name: "Nikola Tesla", bio: "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada." },
@@ -162,24 +145,3 @@ const atualizaPorIdFuncional = (idPassado, nome, bio) => {
         return item;
     });
 };
-console.log("*****PARADIGMA FUNCIONAL*****");
-console.log("\nLista inicial");
-console.log(listaFuncional);
-console.log("Busca da BIO por id: " + bioPorIdFuncional(1));
-console.log("Busca do nome por id: " + nomePorIdFuncional(2));
-console.log("\nRemovendo da lista pelo id");
-console.log(removeDaListaPorIdFuncional(3));
-console.log("\nObserve que a lista original não foi alterada: ");
-console.log(listaFuncional);
-console.log("\nAtualizando valor do name + bio, pelo id");
-console.log(atualizaPorIdFuncional(4, "testename1", "testebio1"));
-console.log("\nObserve que a lista original não foi alterada");
-console.log(listaFuncional);
-console.log("\nAtualizando valor do name, pelo id");
-console.log(atualizaPorIdFuncional(4, "testename2", undefined));
-console.log("\nObserve que a lista original não foi alterada");
-console.log(listaFuncional);
-console.log("\nAtualizando valor da bio, pelo id");
-console.log(atualizaPorIdFuncional(4, undefined, "testebio2"));
-console.log("\nObserve que a lista original não foi alterada");
-console.log(listaFuncional);
