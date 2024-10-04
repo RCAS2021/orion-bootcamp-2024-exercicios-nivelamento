@@ -86,24 +86,6 @@ function atualizaPorIdImperativo(idPassado: number, nome?: string, bio?: string)
     return "ID não existe";
 }
 
-console.log("*****PARADIGMA IMPERATIVO*****")
-console.log("Lista inicial")
-console.log(lista)
-console.log("\nBusca da BIO por id: " + bioPorIdImperativo(1));
-console.log("Busca do nome por id: " + nomePorIdImperativo(2));
-console.log("\nRemovendo da lista pelo id");
-console.log(removeDaListaPorIdImperativo(3));
-console.log(lista)
-console.log("\nAtualizando valor do name + bio, pelo id");
-console.log(atualizaPorIdImperativo(4, "testename1", "testebio1"));
-console.log(lista)
-console.log("\nAtualizando valor do name, pelo id");
-console.log(atualizaPorIdImperativo(4, "testename2", undefined));
-console.log(lista)
-console.log("\nAtualizando valor da bio, pelo id");
-console.log(atualizaPorIdImperativo(4, undefined, "testebio2"));
-console.log(lista)
-
 // Paradigma funcional 
 interface listaFuncional {
     id: number;
@@ -187,25 +169,3 @@ const atualizaPorIdFuncional = (idPassado: number, nome?: string, bio?: string):
         return item;
     })
 }
-
-console.log("*****PARADIGMA FUNCIONAL*****")
-console.log("\nLista inicial")
-console.log(listaFuncional)
-console.log("Busca da BIO por id: " + bioPorIdFuncional(1));
-console.log("Busca do nome por id: " + nomePorIdFuncional(2));
-console.log("\nRemovendo da lista pelo id");
-console.log(removeDaListaPorIdFuncional(3));
-console.log("\nObserve que a lista original não foi alterada: ")
-console.log(listaFuncional)
-console.log("\nAtualizando valor do name + bio, pelo id");
-console.log(atualizaPorIdFuncional(4, "testename1", "testebio1"));
-console.log("\nObserve que a lista original não foi alterada")
-console.log(listaFuncional)
-console.log("\nAtualizando valor do name, pelo id");
-console.log(atualizaPorIdFuncional(4, "testename2", undefined));
-console.log("\nObserve que a lista original não foi alterada")
-console.log(listaFuncional)
-console.log("\nAtualizando valor da bio, pelo id");
-console.log(atualizaPorIdFuncional(4, undefined, "testebio2"));
-console.log("\nObserve que a lista original não foi alterada")
-console.log(listaFuncional)
