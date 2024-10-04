@@ -83,7 +83,7 @@ const listaFuncional: listaFuncional[] = [{id : 1, name: "Ada Lovelace", bio : "
 
 
 const bioPorIdFuncional = (idPassado: number): string => {
-    const item = lista.find((item) => item.id === idPassado)
+    const item = listaFuncional.find((item) => item.id === idPassado)
     if (item !== undefined){
         return item.bio;
     }
@@ -92,7 +92,7 @@ const bioPorIdFuncional = (idPassado: number): string => {
 }
 
 const nomePorIdFuncional = (idPassado: number): string => {
-    const item = lista.find((item) => item.id === idPassado)
+    const item = listaFuncional.find((item) => item.id === idPassado)
     if (item !== undefined){
         return item.name;
     }
@@ -101,11 +101,11 @@ const nomePorIdFuncional = (idPassado: number): string => {
 }
 
 const removeDaListaPorIdFuncional = (idPassado: number) => {
-    return lista.filter((item) => item.id !== idPassado);
+    return listaFuncional.filter((item) => item.id !== idPassado);
 }
 
 const atualizaPorIdFuncional = (idPassado: number, nome?: string, bio?: string) => {
-    return lista.map((item) => {
+    return listaFuncional.map((item) => {
         if (item.id === idPassado){
             return {
                 ...item,
@@ -119,22 +119,22 @@ const atualizaPorIdFuncional = (idPassado: number, nome?: string, bio?: string) 
 
 console.log("*****PARADIGMA FUNCIONAL*****")
 console.log("\nLista inicial")
-console.log(lista)
+console.log(listaFuncional)
 console.log("Busca da BIO por id: " + bioPorIdFuncional(1));
 console.log("Busca do nome por id: " + nomePorIdFuncional(2));
 console.log("\nRemovendo da lista pelo id");
 console.log(removeDaListaPorIdFuncional(3));
 console.log("\nObserve que a lista original não foi alterada: ")
-console.log(lista)
+console.log(listaFuncional)
 console.log("\nAtualizando valor do name + bio, pelo id");
 console.log(atualizaPorIdFuncional(4, "testename1", "testebio1"));
 console.log("\nObserve que a lista original não foi alterada")
-console.log(lista)
+console.log(listaFuncional)
 console.log("\nAtualizando valor do name, pelo id");
 console.log(atualizaPorIdFuncional(4, "testename2", undefined));
 console.log("\nObserve que a lista original não foi alterada")
-console.log(lista)
+console.log(listaFuncional)
 console.log("\nAtualizando valor da bio, pelo id");
 console.log(atualizaPorIdFuncional(4, undefined, "testebio2"));
 console.log("\nObserve que a lista original não foi alterada")
-console.log(lista)
+console.log(listaFuncional)
