@@ -165,7 +165,7 @@ function botaoAtualizaPorIdFuncional() {
         novaLista = atualizaPorIdFuncional(Number(id), novoNome ? novoNome : undefined, novaBio ? novaBio : undefined);
         resultadoElement.textContent = "Nova lista: " + JSON.stringify(novaLista);
     }
-    listarListaFuncional();
+    listarLista();
 }
 function botaoRemovePorIdFuncional() {
     /**
@@ -181,5 +181,5 @@ function botaoRemovePorIdFuncional() {
     const novaLista = removeDaListaPorIdFuncional(Number(id));
     const resultadoElement = document.getElementById("resultadoListaFuncional");
     resultadoElement.textContent = "Nova lista: " + JSON.stringify(novaLista) + "\nObserve que a lista original não foi alterada!";
-    listarListaFuncional();
+    listarLista();
 }
