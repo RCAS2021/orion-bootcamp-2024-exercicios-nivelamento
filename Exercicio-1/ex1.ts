@@ -15,9 +15,9 @@ function contarVogais(palavra?: string): number {
     let cont = 0;
     
     const resultadoElement = document.getElementById("resultado") as HTMLElement;
+    const inputElement = document.getElementById("palavra") as HTMLInputElement;
 
     if (!palavra) {
-        const inputElement = document.getElementById("palavra") as HTMLInputElement;
         if (inputElement && inputElement.value){
             palavra = inputElement.value;
         }
@@ -28,7 +28,7 @@ function contarVogais(palavra?: string): number {
         }
     }
 
-    palavra = palavra.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+    palavra = palavra.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
     for (let caractere of palavra.toLowerCase()) {
         if (vogais.includes(caractere)) {
             cont += 1;
@@ -36,11 +36,13 @@ function contarVogais(palavra?: string): number {
     }
 
     if (cont < 1){
-        console.log("Não há vogais na palavra.")
+        console.log("Não há vogais na palavra.");
         resultadoElement.textContent = "Quantidade de vogais: " + cont + ", não há vogais na palavra.";
+        inputElement.value = palavra;
     }
     else {
         resultadoElement.textContent = "Quantidade de vogais: " + cont;
+        inputElement.value = palavra;
     }
 
     return cont;
