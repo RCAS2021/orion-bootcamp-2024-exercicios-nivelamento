@@ -6,6 +6,14 @@ let lista = [
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}];
 
 function bioPorIdImperativo(idPassado: number): string{
+    /**
+     * Retorna a bio do id fornecido como parâmetro, de acordo com o paradigma imperativo.
+     * 
+     * Checa cada item na lista, para encontrar o item com id igual ao id passado como parâmetro e retorna a bio. Se não encontrar, retorna uma mensagem de erro.
+     * 
+     * @param idPassado - ID na lista a ser fornecido
+     * @returns A bio do id fornecido, caso seja encontrada, do contrário, retorna uma mensagem de erro.
+     */
     for (let item of lista){
         if (item.id === idPassado){
             return item.bio;
@@ -16,6 +24,14 @@ function bioPorIdImperativo(idPassado: number): string{
 }
 
 function nomePorIdImperativo(idPassado: number): string{
+    /**
+     * Retorna o nome do id fornecido como parâmetro, de acordo com o paradigma imperativo.
+     * 
+     * Checa cada item na lista, para encontrar o item com id igual ao id passado como parâmetro e retorna o nome. Se não encontrar, retorna uma mensagem de erro.
+     * 
+     * @param idPassado - ID na lista a ser fornecido
+     * @returns O nome do id fornecido, caso seja encontrado, do contrário, retorna uma mensagem de erro.
+     */
     for (let item of lista){
         if (item.id === idPassado){
             return item.name;
@@ -26,6 +42,14 @@ function nomePorIdImperativo(idPassado: number): string{
 }
 
 function removeDaListaPorIdImperativo(idPassado: number): string{
+    /**
+     * Remove um item da lista, de acordo com o id fornecido, de acordo com o paradigma imperativo.
+     * 
+     * Checa cada item na lista, para encontrar o item com id igual ao id passado como parâmetro e o remove da lista. Se não encontrar, retorna uma mensagem de erro.
+     * 
+     * @param idPassado - ID na lista a ser fornecido
+     * @returns Uma mensagem sinalizando o id que foi removido, caso esteja na lista, do contrário, retorna uma mensagem de erro.
+     */
     for (let index = 0; index < lista.length; index++){
         if (lista[index].id === idPassado){
             lista.splice(index, 1);
@@ -37,6 +61,17 @@ function removeDaListaPorIdImperativo(idPassado: number): string{
 }
 
 function atualizaPorIdImperativo(idPassado: number, nome?: string, bio?: string) {
+    /**
+     * Atualiza um item da lista, podendo ter como parâmetros, tanto o nome e a bio quando apenas um, alterando de acordo com quais foram fornecidos, de acordo com o paradigma imperativo.
+     * 
+     * Checa cada item na lista, para encontrar o item com id igual ao id passado como parâmetro e checa se foi passado como parâmetro um nome ou bio, se sim, atualiza o item da lista, de acordo com os parâmetros fornecidos.
+     * Se não encontrar, retorna uma mensagem de erro.
+     * 
+     * @param idPassado - ID na lista a ser fornecido
+     * @param nome - (Opcional) Nome a ser alterado
+     * @param bio - (Opcional) Bio a ser alterada
+     * @returns Uma mensagem sinalizando o id que foi alterado, caso esteja na lista, do contrário, retorna uma mensagem de erro.
+     */
     for (let item of lista) {
         if (item.id === idPassado) {
             if (nome !== undefined) {
@@ -83,6 +118,14 @@ const listaFuncional: listaFuncional[] = [{id : 1, name: "Ada Lovelace", bio : "
 
 
 const bioPorIdFuncional = (idPassado: number): string => {
+    /**
+     * Retorna a bio do id fornecido como parâmetro, de acordo com o paradigma funcional.
+     * 
+     * Utiliza o método find para percorrer a lista e encontrar o objeto que possua id igual ao id passado.
+     * 
+     * @param idPassado - ID na lista a ser fornecido
+     * @returns A bio do id fornecido, caso seja encontrada, do contrário, retorna uma mensagem de erro.
+     */
     const item = listaFuncional.find((item) => item.id === idPassado)
     if (item !== undefined){
         return item.bio;
@@ -92,6 +135,14 @@ const bioPorIdFuncional = (idPassado: number): string => {
 }
 
 const nomePorIdFuncional = (idPassado: number): string => {
+    /**
+     * Retorna o nome do id fornecido como parâmetro, de acordo com o paradigma funcional.
+     * 
+     * Utiliza o método find para percorrer a lista e encontrar o objeto que possua id igual ao id passado.
+     * 
+     * @param idPassado - ID na lista a ser fornecido
+     * @returns O nome do id fornecido, caso seja encontrada, do contrário, retorna uma mensagem de erro.
+     */
     const item = listaFuncional.find((item) => item.id === idPassado)
     if (item !== undefined){
         return item.name;
@@ -100,11 +151,31 @@ const nomePorIdFuncional = (idPassado: number): string => {
     return "ID não existe";
 }
 
-const removeDaListaPorIdFuncional = (idPassado: number) => {
+const removeDaListaPorIdFuncional = (idPassado: number): listaFuncional[] => {
+    /**
+     * Remove um item da lista, de acordo com o id fornecido, de acordo com o paradigma funcional.
+     * 
+     * Utiliza o método filter, para percorrer a lista e retornar uma lista sem o item com o id igual ao id passado.
+     * 
+     * @param idPassado - ID na lista a ser fornecido
+     * @returns Uma lista de objetos que implementam a interface listaFuncional, contendo todos os itens da lista original, exceto o item com id igual ao id fornecido.
+     */
     return listaFuncional.filter((item) => item.id !== idPassado);
 }
 
-const atualizaPorIdFuncional = (idPassado: number, nome?: string, bio?: string) => {
+const atualizaPorIdFuncional = (idPassado: number, nome?: string, bio?: string): listaFuncional[] => {
+    /**
+     * Atualiza um item da lista, podendo ter como parâmetros, tanto o nome e a bio quando apenas um, alterando de acordo com quais foram fornecidos, de acordo com o paradigma funcional.
+     * 
+     * Utiliza a função map para percorrer os itens da lista funcional, onde, caso o id do item seja o id passado, retorna um novo objeto com os campos name e bio atualizados com os valores fornecidos.
+     * Se um dos valores não for fornecido, mantém o valor original do item.
+     * Caso o id do item não seja igual ao id passado, retorna o item sem alterações.
+     * 
+     * @param idPassado - ID na lista a ser fornecido
+     * @param nome - (Opcional) Nome a ser alterado
+     * @param bio - (Opcional) Bio a ser alterada
+     * @returns Uma nova lista de objetos que implementam a interface listaFuncional, com as informações atualizadas do item com id igual ao id passado.
+     */
     return listaFuncional.map((item) => {
         if (item.id === idPassado){
             return {
