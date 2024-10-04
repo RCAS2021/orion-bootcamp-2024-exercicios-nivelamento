@@ -2,10 +2,8 @@
  * Atualiza o elemento HTML lista, com a lista de itens do exercício 2.
  * 
  * Verifica se o elemento HTML lista existe e o atualiza com a lista do exercício 2. Caso ele não existe, exibe uma mensagem de erro.
- * 
- * @returns Não tem retorno.
  */
-function listarLista(){
+function listarLista(): void{
     const listaHtml = document.getElementById("lista");
     if (listaHtml !== null){
         listaHtml.textContent = "Lista: " + JSON.stringify(lista);
@@ -18,11 +16,9 @@ function listarLista(){
 /**
  * Atualiza o elemento HTML lista, com a lista funcional de itens do exercício 2.
  * 
- * Verifica se o elemento HTML lista existe e o atualiza com a lista funcional do exercício 2. Caso ele não existe, exibe uma mensagem de erro.
- * 
- * @returns Não tem retorno.
+ * Verifica se o elemento HTML lista existe e o atualiza com a lista funcional do exercício 2. Caso ele não existe, exibe uma mensagem de erro. 
  */
-function listarListaFuncional(){
+function listarListaFuncional(): void{
     const listaHtml = document.getElementById("resultadoListaFuncional");
     if (listaHtml !== null){
         listaHtml.textContent = "Lista: " + JSON.stringify(listaFuncional);
@@ -42,7 +38,7 @@ function listarListaFuncional(){
  * 
  * @returns Retorna o id a partir do elemento input HTML, convertido para número.
  */
-function pegaIdPassado(tipo: string){
+function pegaIdPassado(tipo: string): number{
     let idPassado = null;
     let id = "";
 
@@ -64,10 +60,8 @@ function pegaIdPassado(tipo: string){
  * Atualiza o texto de um elemento HTML de acordo com o id fornecido, com a bio do id.
  * 
  * A função chama a função pegaIdPassado, com o tipo imperativo, para obter o id do elemento input HTML e então busca a bio do id chamando a função bioPorIdImperativo com o parâmetro do id.
- * 
- * @returns Não retorna nenhum valor.
  */
-function botaoBioPorIdImperativo(){
+function botaoBioPorIdImperativo(): void{
     const id = pegaIdPassado("imperativo");
 
     const resultadoElement = document.getElementById("resultadoLista") as HTMLElement;
@@ -78,10 +72,8 @@ function botaoBioPorIdImperativo(){
  * Atualiza o texto de um elemento HTML de acordo com o id fornecido, com o nome do id.
  * 
  * A função chama a função pegaIdPassado, com o tipo imperativo, para obter o id do elemento input HTML e então busca a bio do id chamando a função nomePorIdImperativo com o parâmetro do id.
- * 
- * @returns Não retorna nenhum valor.
  */
-function botaoNomePorIdImperativo(){
+function botaoNomePorIdImperativo(): void{
     const id = pegaIdPassado("imperativo");
 
     const resultadoElement = document.getElementById("resultadoLista") as HTMLElement;
@@ -94,10 +86,8 @@ function botaoNomePorIdImperativo(){
  * A função chama a função pegaIdPassado, com o tipo imperativo, para obter o id do elemento input HTML e então busca os valores a serem atualizados da bio e do nome através de 
  * elementos HTML correspondentes. Dependendo dos valores a serem atualizados, a função chama a função atualizarPorIdImperativo, com valores de parâmetros correspondentes.
  * Após a atualização, a função chama a função listarLista para exibir a lista atualizada de usuários.
- * 
- * @returns Não retorna nenhum valor.
  */
-function botaoAtualizaPorIdImperativo(){
+function botaoAtualizaPorIdImperativo(): void{
     const id = pegaIdPassado("imperativo");
     const bioHtml = document.getElementById("bio") as HTMLInputElement;
     const nomeHtml = document.getElementById("name") as HTMLInputElement;
@@ -124,10 +114,8 @@ function botaoAtualizaPorIdImperativo(){
  * removendo da lista o item com id igual ao id passado.
  * 
  * Após a remoção, a função chama a função listarLista para exibir a lista atualizada de usuários.
- * 
- * @returns Não retorna nenhum valor.
  */
-function botaoRemovePorIdImperativo(){
+function botaoRemovePorIdImperativo(): void{
     const id = pegaIdPassado("imperativo");
 
     removeDaListaPorIdImperativo(id);
@@ -139,10 +127,8 @@ function botaoRemovePorIdImperativo(){
  * Atualiza o texto de um elemento HTML de acordo com o id fornecido, com a bio do id.
  * 
  * A função chama a função pegaIdPassado, com o tipo funcional, para obter o id do elemento input HTML e então busca a bio do id chamando a função bioPorIdFuncional com o parâmetro do id.
- * 
- * @returns Não retorna nenhum valor.
  */
-function botaoBioPorIdFuncional(){
+function botaoBioPorIdFuncional(): void{
     const id = pegaIdPassado("funcional");
 
     const resultadoElement = document.getElementById("resultadoListaFuncional") as HTMLElement;
@@ -153,10 +139,8 @@ function botaoBioPorIdFuncional(){
  * Atualiza o texto de um elemento HTML de acordo com o id fornecido, com o nome do id.
  * 
  * A função chama a função pegaIdPassado, com o tipo funcional, para obter o id do elemento input HTML e então busca o nome do id chamando a função nomePorIdFuncional com o parâmetro do id.
- * 
- * @returns Não retorna nenhum valor.
  */
-function botaoNomePorIdFuncional(){
+function botaoNomePorIdFuncional(): void{
     const id = pegaIdPassado("funcional");
 
     const resultadoElement = document.getElementById("resultadoListaFuncional") as HTMLElement;
@@ -170,10 +154,8 @@ function botaoNomePorIdFuncional(){
  * Se pelo menos um dos valores existir, a função chama a função atualizaPorIdFuncional para realizar a atualização dos valores e retornar uma nova lista,
  * que será utilizada ao atualizar o texto do elemento HTML resultadoListaFuncional e chama a função listarListaFuncional para mostrar a lista funcional original,
  * demonstrando que foi criada uma nova lista e a lista original permanece inalterada.
- * 
- * @returns Não retorna nenhum valor.
  */
-function botaoAtualizaPorIdFuncional(){
+function botaoAtualizaPorIdFuncional(): void{
     const id = pegaIdPassado("funcional");
     const bioHtml = document.getElementById("bioFuncional") as HTMLInputElement;
     const nomeHtml = document.getElementById("nameFuncional") as HTMLInputElement;
@@ -196,10 +178,8 @@ function botaoAtualizaPorIdFuncional(){
  * A função obtém o id de um elemento input HTML e chama a função removeDaListaPorIdFuncional, para remover o item correspondente. 
  * O resultado é uma nova lista, que será usada então, para atualizar o elemento HTML resultadoListaFuncional, e então chama a função listarListaFuncional para mostrar a lista funcional original,
  * demonstrando que foi criada uma nova lista e a lista original permanece inalterada.
- * 
- * @returns Não retorna nenhum valor.
  */
-function botaoRemovePorIdFuncional(){
+function botaoRemovePorIdFuncional(): void{
     const id = pegaIdPassado("funcional");
 
     const novaLista = removeDaListaPorIdFuncional(Number(id));
