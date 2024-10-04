@@ -6,9 +6,9 @@ let lista = [
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}];
 
 function bioByIdImperativo(idPassado: number): string{
-    for (let i of lista){
-        if (i.id === idPassado){
-            return i.bio;
+    for (let item of lista){
+        if (item.id === idPassado){
+            return item.bio;
         }
     }
 
@@ -16,9 +16,9 @@ function bioByIdImperativo(idPassado: number): string{
 }
 
 function nameByIdImperativo(idPassado: number): string{
-    for (let i of lista){
-        if (i.id === idPassado){
-            return i.name;
+    for (let item of lista){
+        if (item.id === idPassado){
+            return item.name;
         }
     }
 
@@ -26,9 +26,9 @@ function nameByIdImperativo(idPassado: number): string{
 }
 
 function removeFromListByIdImperativo(idPassado: number): string{
-    for (let i = 0; i < lista.length; i++){
-        if (lista[i].id === idPassado){
-            lista.splice(i, 1);
+    for (let index = 0; index < lista.length; index++){
+        if (lista[index].id === idPassado){
+            lista.splice(index, 1);
             return `Item removido: ${idPassado}`
         }
     }
@@ -37,13 +37,13 @@ function removeFromListByIdImperativo(idPassado: number): string{
 }
 
 function updateByIdImperativo(idPassado: number, name?: string, bio?: string) {
-    for (let i of lista) {
-        if (i.id === idPassado) {
+    for (let item of lista) {
+        if (item.id === idPassado) {
             if (name !== undefined) {
-                i.name = name;
+                item.name = name;
             }
             if (bio !== undefined) {
-                i.bio = bio;
+                item.bio = bio;
             }
             return `Informações alteradas no ID ${idPassado}`;
         }
@@ -77,37 +77,37 @@ lista = [
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}];
 
 const bioByIdFuncional = (idPassado: number): string => {
-    const i = lista.find((i) => i.id === idPassado)
-    if (i !== undefined){
-        return i.bio;
+    const item = lista.find((item) => item.id === idPassado)
+    if (item !== undefined){
+        return item.bio;
     }
 
     return "ID não existe";
 }
 
 const nameByIdFuncional = (idPassado: number): string => {
-    const i = lista.find((i) => i.id === idPassado)
-    if (i !== undefined){
-        return i.name;
+    const item = lista.find((item) => item.id === idPassado)
+    if (item !== undefined){
+        return item.name;
     }
 
     return "ID não existe";
 }
 
 const removeFromListByIdFuncional = (idPassado: number) => {
-    return lista.filter((i) => i.id !== idPassado);
+    return lista.filter((item) => item.id !== idPassado);
 }
 
 const updateByIdFuncional = (idPassado: number, name?: string, bio?: string) => {
-    return lista.map((i) => {
-        if (i.id === idPassado){
+    return lista.map((item) => {
+        if (item.id === idPassado){
             return {
-                ...i,
-                name: name !== undefined ? name : i.name,
-                bio: bio !== undefined ? bio : i.bio
+                ...item,
+                name: name !== undefined ? name : item.name,
+                bio: bio !== undefined ? bio : item.bio
             }
         }
-        return i;
+        return item;
     })
 }
 
