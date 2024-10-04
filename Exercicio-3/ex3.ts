@@ -8,7 +8,7 @@ function listarLista(){
     }
 }
 
-function buttonListarLista(){
+function botaoListarLista(){
     const listaHtml = document.getElementById("resultadoListaFuncional");
     if (listaHtml !== null){
         listaHtml.textContent = "Lista: " + JSON.stringify(lista);
@@ -18,7 +18,7 @@ function buttonListarLista(){
     }
 }
 
-function getIdPassado(tipo: string){
+function pegaIdPassado(tipo: string){
     let idPassado = null;
     let id = "";
 
@@ -36,64 +36,64 @@ function getIdPassado(tipo: string){
     return Number(id);
 }
 
-function buttonBioByIdImperativo(){
-    const id = getIdPassado("imperativo");
+function botaoBioPorIdImperativo(){
+    const id = pegaIdPassado("imperativo");
 
     const resultadoElement = document.getElementById("resultadoLista") as HTMLElement;
-    resultadoElement.textContent = "Bio do ID: " + bioByIdImperativo(id);
+    resultadoElement.textContent = "Bio do ID: " + bioPorIdImperativo(id);
 }
 
-function buttonNameByIdImperativo(){
-    const id = getIdPassado("imperativo");
+function botaoNomePorIdImperativo(){
+    const id = pegaIdPassado("imperativo");
 
     const resultadoElement = document.getElementById("resultadoLista") as HTMLElement;
-    resultadoElement.textContent = "Nome do ID: " + nameByIdImperativo(id);
+    resultadoElement.textContent = "Nome do ID: " + nomePorIdImperativo(id);
 }
 
-function buttonUpdateByIdImperativo(){
-    const id = getIdPassado("imperativo");
+function botaoAtualizaPorIdImperativo(){
+    const id = pegaIdPassado("imperativo");
     const bioHtml = document.getElementById("bio") as HTMLInputElement;
     const nomeHtml = document.getElementById("name") as HTMLInputElement;
     const novaBio = bioHtml.value;
     const novoNome = nomeHtml.value;
 
     if (novaBio && !novoNome){
-        updateByIdImperativo(Number(id), undefined, novaBio);
+        atualizaPorIdImperativo(Number(id), undefined, novaBio);
     }
     else if (!novaBio && novoNome){
-        updateByIdImperativo(Number(id), novoNome, undefined);
+        atualizaPorIdImperativo(Number(id), novoNome, undefined);
     }
     else if (novoNome && novaBio){
-        updateByIdImperativo(Number(id), novoNome, novaBio);
+        atualizaPorIdImperativo(Number(id), novoNome, novaBio);
     }
 
     listarLista();
 }
 
-function buttonRemoveByIdImperativo(){
-    const id = getIdPassado("imperativo");
+function botaoRemovePorIdImperativo(){
+    const id = pegaIdPassado("imperativo");
 
-    removeFromListByIdImperativo(id);
+    removeDaListaPorIdImperativo(id);
 
     listarLista();
 }
 
-function buttonBioByIdFuncional(){
-    const id = getIdPassado("funcional");
+function botaoBioPorIdFuncional(){
+    const id = pegaIdPassado("funcional");
 
     const resultadoElement = document.getElementById("resultadoListaFuncional") as HTMLElement;
-    resultadoElement.textContent = "Bio do ID: " + bioByIdFuncional(id);
+    resultadoElement.textContent = "Bio do ID: " + bioPorIdFuncional(id);
 }
 
-function buttonNameByIdFuncional(){
-    const id = getIdPassado("funcional");
+function botaoNomePorIdFuncional(){
+    const id = pegaIdPassado("funcional");
 
     const resultadoElement = document.getElementById("resultadoListaFuncional") as HTMLElement;
-    resultadoElement.textContent = "Nome do ID: " + nameByIdFuncional(id);
+    resultadoElement.textContent = "Nome do ID: " + nomePorIdFuncional(id);
 }
 
-function buttonUpdateByIdFuncional(){
-    const id = getIdPassado("funcional");
+function botaoAtualizaPorIdFuncional(){
+    const id = pegaIdPassado("funcional");
     const bioHtml = document.getElementById("bioFuncional") as HTMLInputElement;
     const nomeHtml = document.getElementById("nameFuncional") as HTMLInputElement;
     const novaBio = bioHtml.value;
@@ -102,17 +102,17 @@ function buttonUpdateByIdFuncional(){
     const resultadoElement = document.getElementById("resultadoListaFuncional") as HTMLElement;
 
     if (novaBio || novoNome){
-        novaLista = updateByIdFuncional(Number(id), novoNome ? novoNome : undefined , novaBio ? novaBio: undefined)
+        novaLista = atualizaPorIdFuncional(Number(id), novoNome ? novoNome : undefined , novaBio ? novaBio: undefined)
         resultadoElement.textContent = "Nova lista: " + JSON.stringify(novaLista);
     }
 
     listarLista();
 }
 
-function buttonRemoveByIdFuncional(){
-    const id = getIdPassado("funcional");
+function botaoRemovePorIdFuncional(){
+    const id = pegaIdPassado("funcional");
 
-    const novaLista = removeFromListByIdFuncional(Number(id));
+    const novaLista = removeDaListaPorIdFuncional(Number(id));
     const resultadoElement = document.getElementById("resultadoListaFuncional") as HTMLElement;
     resultadoElement.textContent = "Nova lista: " + JSON.stringify(novaLista) + "\nObserve que a lista original não foi alterada!";
     
