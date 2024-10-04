@@ -5,7 +5,7 @@ let lista = [
     {"id" : 3, "name": "Nikola Tesla", "bio" : "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada."},
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}];
 
-function bioByIdImperativo(idPassado: number): string{
+function bioPorIdImperativo(idPassado: number): string{
     for (let item of lista){
         if (item.id === idPassado){
             return item.bio;
@@ -15,7 +15,7 @@ function bioByIdImperativo(idPassado: number): string{
     return "ID não existe";
 }
 
-function nameByIdImperativo(idPassado: number): string{
+function nomePorIdImperativo(idPassado: number): string{
     for (let item of lista){
         if (item.id === idPassado){
             return item.name;
@@ -25,7 +25,7 @@ function nameByIdImperativo(idPassado: number): string{
     return "ID não existe";
 }
 
-function removeFromListByIdImperativo(idPassado: number): string{
+function removeDaListaPorIdImperativo(idPassado: number): string{
     for (let index = 0; index < lista.length; index++){
         if (lista[index].id === idPassado){
             lista.splice(index, 1);
@@ -36,11 +36,11 @@ function removeFromListByIdImperativo(idPassado: number): string{
     return "ID não existe";
 }
 
-function updateByIdImperativo(idPassado: number, name?: string, bio?: string) {
+function atualizaPorIdImperativo(idPassado: number, nome?: string, bio?: string) {
     for (let item of lista) {
         if (item.id === idPassado) {
-            if (name !== undefined) {
-                item.name = name;
+            if (nome !== undefined) {
+                item.name = nome;
             }
             if (bio !== undefined) {
                 item.bio = bio;
@@ -54,19 +54,19 @@ function updateByIdImperativo(idPassado: number, name?: string, bio?: string) {
 console.log("*****PARADIGMA IMPERATIVO*****")
 console.log("Lista inicial")
 console.log(lista)
-console.log("\nBusca da BIO por id: " + bioByIdImperativo(1));
-console.log("Busca do nome por id: " + nameByIdImperativo(2));
+console.log("\nBusca da BIO por id: " + bioPorIdImperativo(1));
+console.log("Busca do nome por id: " + nomePorIdImperativo(2));
 console.log("\nRemovendo da lista pelo id");
-console.log(removeFromListByIdImperativo(3));
+console.log(removeDaListaPorIdImperativo(3));
 console.log(lista)
 console.log("\nAtualizando valor do name + bio, pelo id");
-console.log(updateByIdImperativo(4, "testename1", "testebio1"));
+console.log(atualizaPorIdImperativo(4, "testename1", "testebio1"));
 console.log(lista)
 console.log("\nAtualizando valor do name, pelo id");
-console.log(updateByIdImperativo(4, "testename2", undefined));
+console.log(atualizaPorIdImperativo(4, "testename2", undefined));
 console.log(lista)
 console.log("\nAtualizando valor da bio, pelo id");
-console.log(updateByIdImperativo(4, undefined, "testebio2"));
+console.log(atualizaPorIdImperativo(4, undefined, "testebio2"));
 console.log(lista)
 
 // Paradigma funcional 
@@ -76,7 +76,7 @@ lista = [
     {"id" : 3, "name": "Nikola Tesla", "bio" : "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada."},
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}];
 
-const bioByIdFuncional = (idPassado: number): string => {
+const bioPorIdFuncional = (idPassado: number): string => {
     const item = lista.find((item) => item.id === idPassado)
     if (item !== undefined){
         return item.bio;
@@ -85,7 +85,7 @@ const bioByIdFuncional = (idPassado: number): string => {
     return "ID não existe";
 }
 
-const nameByIdFuncional = (idPassado: number): string => {
+const nomePorIdFuncional = (idPassado: number): string => {
     const item = lista.find((item) => item.id === idPassado)
     if (item !== undefined){
         return item.name;
@@ -94,16 +94,16 @@ const nameByIdFuncional = (idPassado: number): string => {
     return "ID não existe";
 }
 
-const removeFromListByIdFuncional = (idPassado: number) => {
+const removeDaListaPorIdFuncional = (idPassado: number) => {
     return lista.filter((item) => item.id !== idPassado);
 }
 
-const updateByIdFuncional = (idPassado: number, name?: string, bio?: string) => {
+const atualizaPorIdFuncional = (idPassado: number, nome?: string, bio?: string) => {
     return lista.map((item) => {
         if (item.id === idPassado){
             return {
                 ...item,
-                name: name !== undefined ? name : item.name,
+                name: nome !== undefined ? nome : item.name,
                 bio: bio !== undefined ? bio : item.bio
             }
         }
@@ -114,21 +114,21 @@ const updateByIdFuncional = (idPassado: number, name?: string, bio?: string) => 
 console.log("*****PARADIGMA FUNCIONAL*****")
 console.log("\nLista inicial")
 console.log(lista)
-console.log("Busca da BIO por id: " + bioByIdFuncional(1));
-console.log("Busca do nome por id: " + nameByIdFuncional(2));
+console.log("Busca da BIO por id: " + bioPorIdFuncional(1));
+console.log("Busca do nome por id: " + nomePorIdFuncional(2));
 console.log("\nRemovendo da lista pelo id");
-console.log(removeFromListByIdFuncional(3));
+console.log(removeDaListaPorIdFuncional(3));
 console.log("\nObserve que a lista original não foi alterada: ")
 console.log(lista)
 console.log("\nAtualizando valor do name + bio, pelo id");
-console.log(updateByIdFuncional(4, "testename1", "testebio1"));
+console.log(atualizaPorIdFuncional(4, "testename1", "testebio1"));
 console.log("\nObserve que a lista original não foi alterada")
 console.log(lista)
 console.log("\nAtualizando valor do name, pelo id");
-console.log(updateByIdFuncional(4, "testename2", undefined));
+console.log(atualizaPorIdFuncional(4, "testename2", undefined));
 console.log("\nObserve que a lista original não foi alterada")
 console.log(lista)
 console.log("\nAtualizando valor da bio, pelo id");
-console.log(updateByIdFuncional(4, undefined, "testebio2"));
+console.log(atualizaPorIdFuncional(4, undefined, "testebio2"));
 console.log("\nObserve que a lista original não foi alterada")
 console.log(lista)
