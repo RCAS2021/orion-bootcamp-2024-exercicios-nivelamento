@@ -23,7 +23,7 @@ function listarListaFuncional(){
      * 
      * @returns Não tem retorno.
      */
-    const listaHtml = document.getElementById("lista");
+    const listaHtml = document.getElementById("resultadoListaFuncional");
     if (listaHtml !== null){
         listaHtml.textContent = "Lista: " + JSON.stringify(listaFuncional);
     }
