@@ -187,7 +187,7 @@ function botaoAtualizaPorIdFuncional(){
         resultadoElement.textContent = "Nova lista: " + JSON.stringify(novaLista);
     }
 
-    listarListaFuncional();
+    listarLista();
 }
 
 function botaoRemovePorIdFuncional(){
@@ -206,6 +206,6 @@ function botaoRemovePorIdFuncional(){
     const resultadoElement = document.getElementById("resultadoListaFuncional") as HTMLElement;
     resultadoElement.textContent = "Nova lista: " + JSON.stringify(novaLista) + "\nObserve que a lista original não foi alterada!";
     
-    listarListaFuncional();
+    listarLista();
 }
 
