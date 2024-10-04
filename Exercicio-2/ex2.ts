@@ -109,11 +109,7 @@ const listaFuncional: listaFuncional[] = [{id : 1, name: "Ada Lovelace", bio : "
  */
 const bioPorIdFuncional = (idPassado: number): string => {
     const item = listaFuncional.find((item) => item.id === idPassado)
-    if (item !== undefined){
-        return item.bio;
-    }
-
-    return "ID não existe";
+    return item ? item.bio : "ID não existe";
 }
 
 /**
@@ -126,11 +122,7 @@ const bioPorIdFuncional = (idPassado: number): string => {
  */
 const nomePorIdFuncional = (idPassado: number): string => {
     const item = listaFuncional.find((item) => item.id === idPassado)
-    if (item !== undefined){
-        return item.name;
-    }
-
-    return "ID não existe";
+    return item ? item.name : "ID não existe"
 }
 
 /**
