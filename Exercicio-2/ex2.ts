@@ -71,7 +71,7 @@ function removeDaListaPorIdImperativo(idPassado: number): string{
  * @param bio - (Opcional) Bio a ser alterada
  * @returns Uma mensagem sinalizando o id que foi alterado, caso esteja na lista, do contrário, retorna uma mensagem de erro.
  */
-function atualizaPorIdImperativo(idPassado: number, nome?: string, bio?: string) {
+function atualizaPorIdImperativo(idPassado: number, nome?: string, bio?: string): string {
     for (let item of lista) {
         if (item.id === idPassado) {
             if (nome !== undefined) {
