@@ -14,13 +14,14 @@ function contarVogais(palavra) {
     let cont = 0;
     const resultadoElement = document.getElementById("resultado");
     const inputElement = document.getElementById("palavra");
+    const mensagemErro = "Não foi fornecida nenhuma palavra";
     if (!palavra) {
         if (inputElement && inputElement.value) {
             palavra = inputElement.value;
         }
         else {
-            console.log("Não foi fornecida nenhuma palavra.");
-            resultadoElement.textContent = "Não foi fornecida nenhuma palavra.";
+            console.log(mensagemErro);
+            resultadoElement.textContent = mensagemErro;
             return -1;
         }
     }
@@ -30,13 +31,14 @@ function contarVogais(palavra) {
             cont += 1;
         }
     }
+    const quantidadeVogaisString = "Quantidade de vogais: ";
     if (cont < 1) {
         console.log("Não há vogais na palavra.");
-        resultadoElement.textContent = "Quantidade de vogais: " + cont + ", não há vogais na palavra.";
+        resultadoElement.textContent = quantidadeVogaisString + cont + ", não há vogais na palavra.";
         inputElement.value = palavra;
     }
     else {
-        resultadoElement.textContent = "Quantidade de vogais: " + cont;
+        resultadoElement.textContent = quantidadeVogaisString + cont;
         inputElement.value = palavra;
     }
     return cont;
